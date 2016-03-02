@@ -19,7 +19,7 @@
   <% end %>
   <div class="field">
     <%= f.label :amount %><br>
-    <%= f.text_field :amount %>
+    <%= f.number_field :amount, class: :text_field, step: 0.01 %>
   </div>
   <div class="field">
     <%= f.label :activity_date %><br>

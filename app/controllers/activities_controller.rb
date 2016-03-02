@@ -29,13 +29,13 @@ class ActivitiesController < ApplicationController
   # POST /activities.json
   def create
     # byebug
-    r = Reciever.where("name == ? ", activity_params[:reciever][:name])
-    r.empty? ? @reciever = Reciever.new(name: activity_params[:reciever][:name]) : @reciever = r.first
+    r = Reciever.where("name == ? ", activity_params[:reciever][:name].upcase)
+    r.empty? ? @reciever = Reciever.new(name: activity_params[:reciever][:name].upcase) : @reciever = r.first
     @activity = Activity.new(activity_params.except(:reciever))
 
     respond_to do |format|
       if @reciever.activities << @activity && @activity.save
-        format.html { redirect_to @activity, notice: 'Activity was successfully created.' }
+        format.html { redirect_to root_path, notice: 'Activity was successfully created.' }
         format.json { render :show, status: :created, location: @activity }
       else
         format.html { render :new }
