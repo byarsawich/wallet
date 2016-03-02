@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  reciever_id: 1
+  amount: 0.00
+#
+# two:
+#   reciever_id: 2
+#   amount: -100.00
