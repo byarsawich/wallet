@@ -11,13 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160302184525) do
+ActiveRecord::Schema.define(version: 20160302195913) do
 
   create_table "activities", force: :cascade do |t|
     t.integer  "reciever_id"
-    t.decimal  "amount",      precision: 10, scale: 2
-    t.datetime "created_at",                           null: false
-    t.datetime "updated_at",                           null: false
+    t.decimal  "amount",        precision: 10, scale: 2
+    t.datetime "created_at",                             null: false
+    t.datetime "updated_at",                             null: false
+    t.datetime "activity_date"
   end
 
   add_index "activities", ["reciever_id"], name: "index_activities_on_reciever_id"

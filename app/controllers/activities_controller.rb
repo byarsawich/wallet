@@ -7,6 +7,10 @@ class ActivitiesController < ApplicationController
     @activities = Activity.all
   end
 
+
+  def dashboard
+  end
+
   # GET /activities/1
   # GET /activities/1.json
   def show
@@ -69,6 +73,6 @@ class ActivitiesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def activity_params
-      params.require(:activity).permit(:reciever_id, :amount)
+      params.require(:activity).permit(:reciever_id, :name, :amount, :activity_date)
     end
 end

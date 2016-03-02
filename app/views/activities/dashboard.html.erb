@@ -1,0 +1,16 @@
+<p id="notice"><%= notice %></p>
+
+<% balance = Account.get_balance %>
+
+<h1>Welcome to Your Wallet</h1>
+
+<% if balance < 0 %>
+  <p>You're current ballance is: <span class="negative"><%= balance %><span></p>
+  <p class="pov">YOU HAVE NEGATIVE MONEY. STOP SPENDING.</p>
+<% else %>
+  <p>You're current ballance is: <%= balance %></p>
+<% end %>
+<p>Total number of transactions: <%= Account.total_transactions %></p>
+
+<%= link_to 'View Transactions', activities_path %> |
+<%= link_to 'New Transaction', new_activity_path %>

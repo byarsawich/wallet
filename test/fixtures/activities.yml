@@ -3,6 +3,7 @@
 one:
   reciever_id: 1
   amount: 0.00
+  activity_date: 2016-02-18 11:02:57
 #
 # two:
 #   reciever_id: 2
