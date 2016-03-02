@@ -47,8 +47,13 @@ class ActivitiesController < ApplicationController
   # PATCH/PUT /activities/1
   # PATCH/PUT /activities/1.json
   def update
+    r = Reciever.where("name == ? ", activity_params[:reciever][:name].upcase)
+    r.empty? ? @reciever = Reciever.new(name: activity_params[:reciever][:name].upcase) : @reciever = r.first
+    # byebug
     respond_to do |format|
-      if @activity.update(activity_params)
+      if @activity.update(activity_params.except(:reciever))
+        @reciever.save
+        @reciever.activities << @activity
         format.html { redirect_to @activity, notice: 'Activity was successfully updated.' }
         format.json { render :show, status: :ok, location: @activity }
       else
