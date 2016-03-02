@@ -2,7 +2,7 @@
 
 <p>
   <strong>Reciever:</strong>
-  <%= @activity.reciever_id %>
+  <%= Reciever.find(@activity.reciever_id).name %>
 </p>
 
 <p>

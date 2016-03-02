@@ -49,7 +49,7 @@ class ActivitiesController < ApplicationController
   def update
     r = Reciever.where("name == ? ", activity_params[:reciever][:name].upcase)
     r.empty? ? @reciever = Reciever.new(name: activity_params[:reciever][:name].upcase) : @reciever = r.first
-    # byebug
+
     respond_to do |format|
       if @activity.update(activity_params.except(:reciever))
         @reciever.save
