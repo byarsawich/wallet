@@ -14,7 +14,11 @@
   <%= f.fields_for :reciever do |e| %>
     <div class="field">
       <%= e.label :name, "Recievers Name:" %><br>
-      <%= e.text_field :name %>
+      <% if action_name == 'edit' %>
+        <%= e.text_field :name, value: Reciever.find(@activity.reciever_id).name %>
+      <% else %>
+        <%= e.text_field :name %>
+      <% end %>
     </div>
   <% end %>
   <div class="field">
@@ -26,6 +30,10 @@
     <%= f.datetime_select :activity_date, :ampm => true, :minute_step => 15 %>
   </dv>
   <div class="actions">
-    <%= f.submit %>
+    <% if @activity.id %>
+      <%= f.submit "Update Transaction" %>
+    <% else %>
+      <%= f.submit "Create Transaction" %>
+    <% end %>
   </div>
 <% end %>
