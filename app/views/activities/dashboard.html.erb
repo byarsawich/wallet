@@ -5,10 +5,10 @@
 <h1>Welcome to Your Wallet</h1>
 
 <% if balance < 0 %>
-  <p>You're current ballance is: <span class="negative"><%= balance %><span></p>
+  <p>You're current ballance is: <span class="negative"><%= number_to_currency(balance) %><span></p>
   <p class="pov">YOU HAVE NEGATIVE MONEY. STOP SPENDING.</p>
 <% else %>
-  <p>You're current ballance is: <%= balance %></p>
+  <p>You're current ballance is: <%= number_to_currency(balance) %></p>
 <% end %>
 <p>Total number of transactions: <%= Account.total_transactions %></p>
 

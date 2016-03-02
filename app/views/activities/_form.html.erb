@@ -11,14 +11,20 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :reciever_id %><br>
-    <%= f.number_field :reciever_id %>
-  </div>
+  <%= f.fields_for :reciever do |e| %>
+    <div class="field">
+      <%= e.label :name, "Recievers Name:" %><br>
+      <%= e.text_field :name %>
+    </div>
+  <% end %>
   <div class="field">
     <%= f.label :amount %><br>
     <%= f.text_field :amount %>
   </div>
+  <div class="field">
+    <%= f.label :activity_date %><br>
+    <%= f.datetime_select :activity_date, :ampm => true, :minute_step => 15 %>
+  </dv>
   <div class="actions">
     <%= f.submit %>
   </div>
