@@ -17,7 +17,7 @@
 <p>Total Transactions Last Month: <%= Account.get_transactions_by_month(1) %></p>
 <p>Largest Debit This Month: <%= number_to_currency(Account.get_largest_transaction_by_Month(0)) %></p>
 <p>Largest Debit Ever: <%= number_to_currency(Account.get_largest_debit_ever) %></p>
-<p>You Spent Most of Your Money At: <%= number_to_currency(Account.get_largest_debit_reciever) %></p>
+<p>You Spent Most of Your Money At: <%= Account.get_largest_debit_reciever %></p>
 
 <%= link_to 'View Transactions', activities_path %> |
 <%= link_to 'New Transaction', new_activity_path %>
