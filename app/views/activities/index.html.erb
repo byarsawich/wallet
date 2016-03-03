@@ -15,7 +15,7 @@
   <tbody>
     <% @activities.each do |activity| %>
       <tr>
-        <td><%= Reciever.find(activity.reciever_id).name %></td>
+        <td><%= @recievers.find(activity.reciever_id).name %></td>
         <td><%= number_to_currency(activity.amount) %></td>
         <td><%= activity.activity_date %></td>
         <td><%= link_to 'Show', activity %></td>
