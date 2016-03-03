@@ -34,7 +34,7 @@ class Account
   end
 
   def get_largest_debit_reciever
-    a = Activity.select(:reciever_id).order(reciever_id: :desc).group(:reciever_id).sum(:amount).first
+    a = Activity.select("reciever_id, sum(amount)").order("sum_amount").group(:reciever_id).sum(:amount).first
     Reciever.find(a[0]).name
   end
 end
