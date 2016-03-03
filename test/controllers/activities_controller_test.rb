@@ -18,10 +18,10 @@ class ActivitiesControllerTest < ActionController::TestCase
 
   test "should create activity" do
     assert_difference('Activity.count') do
-      post :create, activity: { amount: @activity.amount, reciever_id: @activity.reciever_id }
+      post :create, activity: { amount: @activity.amount, reciever: {name: "SELF"}}
     end
 
-    assert_redirected_to activity_path(assigns(:activity))
+    assert_redirected_to root_path(assigns(:activity))
   end
 
   test "should show activity" do
@@ -35,7 +35,7 @@ class ActivitiesControllerTest < ActionController::TestCase
   end
 
   test "should update activity" do
-    patch :update, id: @activity, activity: { amount: @activity.amount, reciever_id: @activity.reciever_id }
+    patch :update, id: @activity, activity: { amount: @activity.amount, reciever: {name: "SELF"} }
     assert_redirected_to activity_path(assigns(:activity))
   end
 
