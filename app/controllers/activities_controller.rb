@@ -9,6 +9,7 @@ class ActivitiesController < ApplicationController
 
 
   def dashboard
+    @account = Account.new
   end
 
   # GET /activities/1
