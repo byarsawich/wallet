@@ -31,12 +31,10 @@ class ActivitiesController < ApplicationController
   # POST /activities.json
   def create
     # byebug
-    r = Reciever.where("name == ? ", activity_params[:reciever][:name].upcase)
-    r.empty? ? @reciever = Reciever.new(name: activity_params[:reciever][:name].upcase) : @reciever = r.first
-    @activity = Activity.new(activity_params.except(:reciever))
+    @activity = Activity.new(activity_params)
 
     respond_to do |format|
-      if @reciever.activities << @activity && @activity.save
+      if @activity.save
         format.html { redirect_to root_path, notice: 'Activity was successfully created.' }
         format.json { render :show, status: :created, location: @activity }
       else
@@ -84,6 +82,6 @@ class ActivitiesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def activity_params
-      params.require(:activity).permit(:amount, :activity_date, reciever: [:name])
+      params.require(:activity).permit(:amount, :activity_date, :reciever_name)
     end
 end

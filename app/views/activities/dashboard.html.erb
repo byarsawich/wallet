@@ -15,7 +15,7 @@
 <p>Total Transactions This Month: <%= @account.get_transactions_by_month(0) %></p>
 <p>Total Ammount Spent Last Month: <%= number_to_currency(@account.get_total_by_month(1)) %></p>
 <p>Total Transactions Last Month: <%= @account.get_transactions_by_month(1) %></p>
-<p>Largest Debit This Month: <%= number_to_currency(@account.get_largest_transaction_by_Month(0)) %></p>
+<p>Largest Debit This Month: <%= number_to_currency(@account.get_largest_transaction_by_month(0)) %></p>
 <p>Largest Debit Ever: <%= number_to_currency(@account.get_largest_debit_ever) %></p>
 <p>You Spent Most of Your Money At: <%= @account.get_largest_debit_reciever %></p>
 
