@@ -1,7 +1,4 @@
 class Account
-  def initialize
-
-  end
 
   def get_balance
     Activity.sum(:amount)
@@ -23,7 +20,7 @@ class Account
     Activity.where("activity_date > ? AND activity_date < ?", start_date, end_date).count
   end
 
-  def get_largest_transaction_by_Month(sourcemonth)
+  def get_largest_transaction_by_month(sourcemonth)
     start_date = sourcemonth.month.ago.beginning_of_month
     end_date = sourcemonth.month.ago.end_of_month
     Activity.where("activity_date > ? AND activity_date < ?", start_date, end_date).order(:amount).first.amount
